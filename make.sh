@@ -1,19 +1,15 @@
 #!/bin/bash
 
-# Navigate to the frontend directory and install dependencies
-cd SupportAI-Frontend || exit
-npm install
+# Define functions for installing dependencies, starting, stopping, and reloading the Docker containers, and viewing logs
+function install() {
+    cd SupportAI-Frontend || exit
+    npm install
+    cd ..
 
-cd ..
-
-# Navigate to the backend directory and install dependencies
-cd SupportAI-Backend || exit
-npm install
-
-cd ..
-
-# Add execute permissions to the script
-chmod +x make.sh
+    cd SupportAI-Backend || exit
+    npm install
+    cd ..
+}
 
 # Define functions for starting, stopping, and reloading the Docker containers
 function up() {
@@ -34,6 +30,9 @@ function logs() {
 
 # Check the first argument to the script
 case $1 in
+    install)
+        install
+        ;;
     up)
         up
         ;;
@@ -47,6 +46,6 @@ case $1 in
         logs
         ;;
     *)
-        echo "Usage: ./make.sh {up|down|reload|logs}"
+        echo "Usage: ./make.sh {install|up|down|reload|logs}"
         exit 1
 esac
