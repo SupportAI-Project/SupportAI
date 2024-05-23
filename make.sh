@@ -52,6 +52,9 @@ case $1 in
     logs)
         logs
         ;;
+    init)
+        init
+        ;;
     *)
         echo "Usage: ./make.sh {install|up|down|reload|logs}"
         exit 1
