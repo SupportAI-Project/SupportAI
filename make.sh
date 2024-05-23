@@ -28,6 +28,9 @@ function reload() {
     down
     up
 }
+function logs() {
+    docker-compose logs -f
+}
 
 # Check the first argument to the script
 case $1 in
@@ -40,7 +43,10 @@ case $1 in
     reload)
         reload
         ;;
+    logs)
+        logs
+        ;;
     *)
-        echo "Usage: ./make.sh {up|down|reload}"
+        echo "Usage: ./make.sh {up|down|reload|logs}"
         exit 1
 esac
