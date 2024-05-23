@@ -4,3 +4,6 @@
 [submodule "SupportAI-Frontend"]
 	path = SupportAI-Frontend
 	url = https://github.com/SupportAI-Project/SupportAI-Frontend
+[submodule "SupportAI-Model-AI"]
+	path = SupportAI-Model-AI
+	url = https://https://github.com/SupportAI-Project/SupportAI-Model-AI
