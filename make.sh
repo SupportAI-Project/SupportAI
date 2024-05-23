@@ -13,7 +13,7 @@ function install() {
 
 # Define functions for starting, stopping, and reloading the Docker containers
 function up() {
-    docker-compose up -d --build
+    docker-compose up --build
 }
 
 function down() {
