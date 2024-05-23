@@ -1,5 +1,7 @@
 #!/bin/bash
 
+chmod +x "$0"
+
 # Define functions for installing dependencies, starting, stopping, and reloading the Docker containers, and viewing logs
 function install() {
     cd SupportAI-Frontend || exit
