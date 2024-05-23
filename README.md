@@ -5,22 +5,22 @@
 bash make.sh
 ```
 
-1. Install all dependencies in both frontend & backend
+2. Install all dependencies in both frontend & backend
 ```bash
 ./make.sh install
 ```
 
-2. Run the frontend & backend containers
+3. Run the frontend & backend containers
 ```bash
 ./make.sh up
 ```
 
-3. Watch the logs & view the logs
+4. Watch the logs & view the logs
 ```bash
 ./make.sh logs
 ```
 
-4. Shutdown all containers
+5. Shutdown all containers
 ```bash
 ./make.sh down
 ```
