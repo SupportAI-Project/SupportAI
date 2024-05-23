@@ -14,6 +14,11 @@ function install() {
 }
 
 # Define functions for starting, stopping, and reloading the Docker containers
+function init() {
+  git submodule add https://github.com/SupportAI-Project/SupportAI-Backend
+  git submodule add https://github.com/SupportAI-Project/SupportAI-Frontend
+}
+
 function up() {
     docker-compose up --build
 }
