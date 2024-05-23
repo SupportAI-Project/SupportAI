@@ -1,0 +1,6 @@
+[submodule "SupportAI-Backend"]
+	path = SupportAI-Backend
+	url = https://github.com/SupportAI-Project/SupportAI-Backend
+[submodule "SupportAI-Frontend"]
+	path = SupportAI-Frontend
+	url = https://github.com/SupportAI-Project/SupportAI-Frontend
