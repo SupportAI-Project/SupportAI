@@ -6,6 +6,8 @@ services:
       context: .
       dockerfile: SupportAI-Frontend/Dockerfile
     restart: always
+    volumes:
+      - ./SupportAI-Frontend:/app
     ports:
       - "3000:3000"
 
