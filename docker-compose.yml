@@ -1,23 +1,32 @@
-version: "3"
+version: "3.8"
 services:
   supportai-frontend:
     container_name: supportai-frontend
     build:
-      context: .
-      dockerfile: SupportAI-Frontend/Dockerfile
+      context: ./SupportAI-Frontend
+      dockerfile: Dockerfile
+      target: deps
+    command: npm run dev
     restart: always
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
     volumes:
       - ./SupportAI-Frontend:/app
+      - /app/node_modules
+      - /app/.next
     ports:
       - "3000:3000"
 
   supportai-backend:
     container_name: supportai-backend
     build:
-      context: .
-      dockerfile: SupportAI-Backend/Dockerfile
-      args:
-        - APP=supportai-backend
+      context: ./SupportAI-Backend
+      dockerfile: Dockerfile
+    command: npm run start:dev
+    volumes:
+      - ./SupportAI-Backend:/usr/src/app
+      - /usr/src/app/node_modules
     restart: always
     ports:
       - "3001:3000"
