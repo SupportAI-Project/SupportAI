@@ -1,0 +1,21 @@
+version: "3"
+services:
+  supportai-frontend:
+    container_name: supportai-frontend
+    build:
+      context: .
+      dockerfile: SupportAI-Frontend/Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
+
+  supportai-backend:
+    container_name: supportai-backend
+    build:
+      context: .
+      dockerfile: SupportAI-Backend/Dockerfile
+      args:
+        - APP=supportai-backend
+    restart: always
+    ports:
+      - "3001:3000"
