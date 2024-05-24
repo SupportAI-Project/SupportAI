@@ -32,3 +32,16 @@ services:
     restart: always
     ports:
       - "3001:3000"
+
+  supportai-model-ai:
+    container_name: supportai-model-ai
+    build: 
+      context: ./SupportAI-Model-AI
+      dockerfile: Dockerfile
+    command: npm run start:dev
+    volumes:
+      - ./SupportAI-Model-AI:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: always
+    ports:
+      - "3002:3000"
