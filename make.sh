@@ -25,7 +25,7 @@ function init() {
 }
 
 function up() {
-    docker-compose up --build
+    docker-compose up
 }
 
 function down() {
