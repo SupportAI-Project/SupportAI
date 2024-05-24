@@ -23,6 +23,8 @@ services:
     build:
       context: ./SupportAI-Backend
       dockerfile: Dockerfile
+    env_file:
+      - ./SupportAI-Backend/.env
     command: npm run start:dev
     volumes:
       - ./SupportAI-Backend:/usr/src/app
