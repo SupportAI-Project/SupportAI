@@ -2,6 +2,11 @@
 
 This project consists of three submodules: SupportAI-Frontend, SupportAI-Backend, and SupportAI-Model-AI. We use Docker for easy setup and teardown. The `make.sh` script provides a set of commands to manage the project.
 
+## Getting Started
+Clone the repository:
+```bash
+git clone --recurse-submodules https://github.com/SupportAI-Project/SupportAI.git
+```
 ## Commands
 
 ### `./make.sh install`
