@@ -11,7 +11,7 @@ git clone --recurse-submodules https://github.com/SupportAI-Project/SupportAI.gi
 
 ### `./make.sh install`
 
-This command installs the necessary dependencies for the Frontend and Backend. It navigates into each directory, runs `npm install`, and then navigates back to the root directory.
+This command installs the necessary dependencies for the Frontend and Backend.
 
 ### `./make.sh init` - OPTIONAL
 
@@ -19,11 +19,11 @@ This command initializes the project by adding the necessary git submodules. It 
 
 ### `./make.sh up`
 
-This command starts the Docker containers in detached mode using `docker-compose up -d`.
+This command starts the Docker containers in detached mode
 
 ### `./make.sh down`
 
-This command stops and removes the Docker containers using `docker-compose down`.
+This command stops and removes the Docker containers
 
 ### `./make.sh reload`
 
@@ -31,7 +31,7 @@ This command reloads the Docker containers.
 
 ### `./make.sh logs`
 
-This command shows the logs of the Docker containers using `docker-compose logs -f`.
+This command shows the logs of the Docker containers
 
 ## Usage
 
