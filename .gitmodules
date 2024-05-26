@@ -1,9 +1,12 @@
 [submodule "SupportAI-Backend"]
 	path = SupportAI-Backend
 	url = https://github.com/SupportAI-Project/SupportAI-Backend
+	branch = master
 [submodule "SupportAI-Frontend"]
 	path = SupportAI-Frontend
 	url = https://github.com/SupportAI-Project/SupportAI-Frontend
+	branch = master
 [submodule "SupportAI-Model-AI"]
 	path = SupportAI-Model-AI
 	url = https://github.com/SupportAI-Project/SupportAI-Model-AI
+	branch = master
