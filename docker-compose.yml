@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   supportai-frontend:
     container_name: supportai-frontend
@@ -13,8 +12,8 @@ services:
       - WATCHPACK_POLLING=true
     volumes:
       - ./SupportAI-Frontend:/app
-      - /app/node_modules
-      - /app/.next
+      - node_modules_frontend:/app/node_modules
+      - next_frontend:/app/.next
     ports:
       - "3000:3000"
 
@@ -28,7 +27,12 @@ services:
     command: npm run start:dev
     volumes:
       - ./SupportAI-Backend:/usr/src/app
-      - /usr/src/app/node_modules
+      - node_modules_backend:/usr/src/app/node_modules
     restart: always
     ports:
       - "3001:3000"
+
+volumes:
+  node_modules_frontend:
+  next_frontend:
+  node_modules_backend:
