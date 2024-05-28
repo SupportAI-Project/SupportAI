@@ -13,6 +13,14 @@ function install() {
     cd ..
 }
 
+function build {
+    docker-compose build
+}
+
+function force-build {
+    docker-compose up -d --force-recreate --renew-anon-volumes
+}
+
 # Define functions for starting, stopping, and reloading the Docker containers
 function init() {
   git submodule add https://github.com/SupportAI-Project/SupportAI-Backend
@@ -55,6 +63,12 @@ case $1 in
         ;;
     init)
         init
+        ;;
+    build)
+        build
+        ;;
+    force-build)
+        force-build
         ;;
     *)
         echo "Usage: ./make.sh {install|up|down|reload|logs}"
