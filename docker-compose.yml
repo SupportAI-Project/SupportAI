@@ -40,7 +40,7 @@ services:
     command: npm run start:dev
     volumes:
       - ./SupportAI-Model-AI:/usr/src/app
-      - node_modules_ai_model:/usr/src/app/node_modules
+      - node_modules_model_ai:/usr/src/app/node_modules
     restart: always
     ports:
       - "3002:3000"
