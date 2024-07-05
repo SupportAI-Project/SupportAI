@@ -1,0 +1,39 @@
+name: Auto Generate Pull Request
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    auto-pr:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+
+            - name: Get JIRA issue key from branch name
+              id: get-issue-key
+              run: |
+                BRANCH_NAME=${GITHUB_REF#refs/heads/}
+                ISSUE_KEY=$(echo $BRANCH_NAME | grep -oP '(FP-\d+)' || echo '')
+                echo "::set-output name=issue_key::$ISSUE_KEY"
+
+                - name: Create Pull Request
+                id: create_pr
+                uses: peter-evans/create-pull-request@v4
+                with:
+                  commit-message: "Auto-generated PR for submodule changes"
+                  title: "Auto-generated PR for submodule changes"
+                  body: |
+                    ## Task link from JIRA:
+                    link: < (example: https://mssplinter10-1711638164183.atlassian.net/jira/software/projects/FP/boards/6?selectedIssue=FP-49)>
+                    
+                    ## Description:
+                    < your description here >
+                  branch: auto-pr-branch
+                  base: main
+                  reviewers: ${{ github.actor }}
+                  assignees: ${{ github.actor }}
+                  labels: auto-generated
