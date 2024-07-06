@@ -1,0 +1,19 @@
+##############################################################
+# Get in touch with us via the Support-AI Project, and open and issue in one of the repos.
+# https://github.com/SupportAI-Project
+# 
+# These owners will be the default owners for everything in the main repo.
+* @TomerMiz10 @ArikLeikin @JosephOri @roiy0987 @nitzanto
+
+# Backend:
+/SupportAI-Backend/* @roiy0987 @nitzanto @JosephOri
+
+# Frontend:
+/SupportAI-Frontend/* @nitzanto @ArikLeikin
+
+# Model-AI:
+<<<<<<< HEAD
+/SupportAI-Model-AI/* @TomerMiz10 @ArikLeikin 
+=======
+/SupportAI-Model-AI/* @TomerMiz10 @ArikLeikin 
+>>>>>>> 65cc963b3be30866efa36896a4f05bf0fa55677d
