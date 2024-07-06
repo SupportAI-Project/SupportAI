@@ -1,42 +1,23 @@
-name: Auto Generate Pull Request
+name: Auto Generate PR Description
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types: [opened]
 
 jobs:
-  auto-pr:
+  auto-generate-description:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '18'
+      - name: Set up Git
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
 
-    - name: Get JIRA Task Name
-      run: echo "JIRA_TASK=${GITHUB_REF##*/}" >> $GITHUB_ENV
-
-    - name: Generate PR Description
-      run: .github/workflows/generate_pr.sh
-
-    - name: Read PR Description
-      id: read_pr_description
-      run: echo "description=$(cat pr_description.md)" >> $GITHUB_ENV
-
-    - name: Create Pull Request
-      id: create_pr
-      uses: peter-evans/create-pull-request@v4
-      with:
-        commit-message: "Auto-generated PR for submodule changes"
-        title: "PR from JIRA task: ${{ env.JIRA_TASK }}"
-        body: ${{ env.description }}
-        branch: auto-pr-branch
-        base: main
-        reviewers: ${{ github.actor }}
-        assignees: ${{ github.actor }}
-        labels: auto-generated
+      - name: Run PR description generation script
+        run: |
+          cd .github/worksflows/pr_workflow
+          ./create_pr.sh
