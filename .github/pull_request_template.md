@@ -3,7 +3,6 @@ link: < (example: https://mssplinter10-1711638164183.atlassian.net/jira/software
 
 ## Description:
 {description}
-{list of commits}
 
 ## Code Owners:
 {code_owners}
