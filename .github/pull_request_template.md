@@ -2,13 +2,11 @@
 link: < (example: https://mssplinter10-1711638164183.atlassian.net/jira/software/projects/FP/boards/6?selectedIssue=FP-49)>
 
 
-<!-- Please use this template for your pull request. -->
-<!-- Please use the sections that you need and delete other sections -->
+## Description:
+{description}
 
-## This PR
-<!-- add the description of the PR here -->
-
-- adds this new feature
+## Features:
+{features}
 
 ### Related Issues
 <!-- add here the GitHub issue that this PR resolves if applicable -->
