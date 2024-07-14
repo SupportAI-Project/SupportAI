@@ -11,6 +11,10 @@ function install() {
     cd SupportAI-Backend || exit
     npm install
     cd ..
+
+    cd SupportAI-Model-AI || exit
+    npm install
+    cd ..
 }
 
 function build {
