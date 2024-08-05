@@ -17,6 +17,20 @@ function install() {
     cd ..
 }
 
+function update() {
+    cd SupportAI-Frontend || exit
+    npm update
+    cd ..
+
+    cd SupportAI-Backend || exit
+    npm update
+    cd ..
+
+    cd SupportAI-Model-AI || exit
+    npm update
+    cd ..
+}
+
 function build {
     docker-compose build
 }
@@ -52,6 +66,9 @@ function logs() {
 case $1 in
     install)
         install
+        ;;
+    update)
+        update
         ;;
     up)
         up
