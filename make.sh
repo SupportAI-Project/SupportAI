@@ -47,6 +47,10 @@ function init() {
 }
 
 function up() {
+    build
+    docker-compose run --rm --entrypoint "npm install" supportai-backend
+    docker-compose run --rm --entrypoint "npm install" supportai-backend
+    docker-compose run --rm --entrypoint "npm install" supportai-model-ai
     docker-compose up -d
 }
 
