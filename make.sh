@@ -11,6 +11,24 @@ function install() {
     cd SupportAI-Backend || exit
     npm install
     cd ..
+
+    cd SupportAI-Model-AI || exit
+    npm install
+    cd ..
+}
+
+function update() {
+    cd SupportAI-Frontend || exit
+    npm update
+    cd ..
+
+    cd SupportAI-Backend || exit
+    npm update
+    cd ..
+
+    cd SupportAI-Model-AI || exit
+    npm update
+    cd ..
 }
 
 function build {
@@ -29,6 +47,10 @@ function init() {
 }
 
 function up() {
+    build
+    docker-compose run --rm --entrypoint "npm install" supportai-backend
+    docker-compose run --rm --entrypoint "npm install" supportai-frontend
+    docker-compose run --rm --entrypoint "npm install" supportai-model-ai
     docker-compose up -d
 }
 
@@ -48,6 +70,9 @@ function logs() {
 case $1 in
     install)
         install
+        ;;
+    update)
+        update
         ;;
     up)
         up
