@@ -51,6 +51,9 @@ function up() {
     docker-compose run --rm --entrypoint "npm install" supportai-backend
     docker-compose run --rm --entrypoint "npm install" supportai-frontend
     docker-compose run --rm --entrypoint "npm install" supportai-model-ai
+
+    docker exec -it supportai-postgres psql -U supportai_owner -c "CREATE DATABASE supportai;"
+
     docker-compose up -d
 }
 
