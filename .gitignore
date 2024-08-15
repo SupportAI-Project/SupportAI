@@ -3,3 +3,4 @@
 .github/workflows/pr_workflow/identify_touched_code.sh
 .github/workflows/pr_workflow/generate_pr_description.sh
 .github/workflows/pr_workflow/create_pr.sh
+node_modules

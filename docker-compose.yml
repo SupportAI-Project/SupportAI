@@ -1,3 +1,4 @@
+version: '3.8'
 services:
   supportai-frontend:
     container_name: supportai-frontend
@@ -16,6 +17,8 @@ services:
       - next_frontend:/app/.next
     ports:
       - "3000:3000"
+    networks:
+      - app_network
 
   supportai-backend:
     container_name: supportai-backend
@@ -31,22 +34,27 @@ services:
     restart: always
     ports:
       - "3001:3000"
+    networks:
+      - app_network
 
-  supportai-model-ai:
-    container_name: supportai-model-ai
-    build: 
-      context: ./SupportAI-Model-AI
-      dockerfile: Dockerfile
-    command: npm run start:dev
-    volumes:
-      - ./SupportAI-Model-AI:/usr/src/app
-      - node_modules_model_ai:/usr/src/app/node_modules
-    restart: always
+  postgres:
+    image: postgres:latest
+    container_name: supportai-postgres
+    env_file:
+      - ./SupportAI-Backend/.env 
     ports:
-      - "3002:3000"
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app_network
 
 volumes:
   node_modules_frontend:
   next_frontend:
   node_modules_backend:
-  node_modules_model_ai:
+  postgres_data:
+
+networks:
+  app_network:
+    driver: bridge
