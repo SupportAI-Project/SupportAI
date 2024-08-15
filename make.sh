@@ -52,10 +52,6 @@ function up() {
     docker-compose run --rm --entrypoint "npm install" supportai-frontend
     docker-compose run --rm --entrypoint "npm install" supportai-model-ai
 
-    docker-compose up -d postgres
-
-    docker-compose run --rm --entrypoint "sh -c 'until pg_isready -h postgres -p 5432; do sleep 1; done'" postgres
-
     docker exec -it supportai-postgres psql -U supportai_owner -c "CREATE DATABASE supportai;"
 
     docker-compose up -d
