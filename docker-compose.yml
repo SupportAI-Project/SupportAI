@@ -34,6 +34,19 @@ services:
     depends_on:
       - postgres
 
+  supportai-model-ai:
+    container_name: supportai-model-ai
+    build: 
+      context: ./SupportAI-Model-AI
+      dockerfile: Dockerfile
+    command: npm run start:dev
+    volumes:
+      - ./SupportAI-Model-AI:/usr/src/app
+      - node_modules_model_ai:/usr/src/app/node_modules
+    restart: always
+    ports:
+      - "3002:3000"
+      
   postgres:
     image: postgres:latest
     container_name: supportai-postgres
@@ -48,5 +61,6 @@ volumes:
   node_modules_frontend:
   next_frontend:
   node_modules_backend:
+  node_modules_model_ai:
   postgres_data:
 
