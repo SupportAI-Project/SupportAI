@@ -52,7 +52,8 @@ function up() {
     docker-compose run --rm --entrypoint "npm install" supportai-frontend
     docker-compose run --rm --entrypoint "npm install" supportai-model-ai
 
-    docker exec -it supportai-postgres psql -U supportai_owner -c "CREATE DATABASE supportai;"
+    # dont delete this!!!! we temporarily use neon db for projections    
+    # docker exec -it supportai-postgres psql -U supportai_owner -c "CREATE DATABASE supportai;"
 
     docker-compose up -d
 }
