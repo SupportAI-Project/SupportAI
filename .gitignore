@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+.github/workflows/pr_workflow/
+.github/workflows/pr_workflow/tag_code_owners.sh
+.github/workflows/pr_workflow/identify_touched_code.sh
+.github/workflows/pr_workflow/generate_pr_description.sh
+.github/workflows/pr_workflow/create_pr.sh
 .github/*
 .vscode/*
 *.sql

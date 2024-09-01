@@ -31,8 +31,10 @@ services:
     restart: always
     ports:
       - "3001:3000"
-    depends_on:
-      - postgres
+      
+    # dont delete this!!!! we temporarily use neon db for projections    
+    # depends_on:
+    #   - postgres
 
   supportai-model-ai:
     container_name: supportai-model-ai
@@ -46,16 +48,17 @@ services:
     restart: always
     ports:
       - "3002:3000"
-      
-  postgres:
-    image: postgres:latest
-    container_name: supportai-postgres
-    env_file:
-      - ./SupportAI-Backend/.env 
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+
+  # dont delete this!!!! we temporarily use neon db for projections    
+  # postgres:
+  #   image: postgres:latest
+  #   container_name: supportai-postgres
+  #   env_file:
+  #     - ./SupportAI-Backend/.env 
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
 
 volumes:
   node_modules_frontend:
