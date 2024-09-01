@@ -31,6 +31,20 @@ function update() {
     cd ..
 }
 
+function pullOrigin() {
+    cd SupportAI-Frontend || exit
+    git pull origin master
+    cd ..
+
+    cd SupportAI-Backend || exit
+    git pull origin master
+    cd ..
+
+    cd SupportAI-Model-AI || exit
+    git pull origin master
+    cd ..
+}
+
 function build {
     docker-compose build
 }
@@ -47,6 +61,13 @@ function init() {
 }
 
 function up() {
+    build
+    docker-compose run --rm --entrypoint "npm install" supportai-backend
+    docker-compose run --rm --entrypoint "npm install" supportai-frontend
+    docker-compose run --rm --entrypoint "npm install" supportai-model-ai
+
+    docker exec -it supportai-postgres psql -U supportai_owner -c "CREATE DATABASE supportai;"
+
     docker-compose up -d
 }
 
@@ -69,6 +90,9 @@ case $1 in
         ;;
     update)
         update
+        ;;
+    pullOrigin)
+        pullOrigin
         ;;
     up)
         up
