@@ -2,6 +2,9 @@
 
 This project consists of three submodules: SupportAI-Frontend, SupportAI-Backend, and SupportAI-Model-AI. We use Docker for easy setup and teardown. The `make.sh` script provides a set of commands to manage the project.
 
+## Demo Video
+[Final Project - Demo Video](https://www.canva.com/design/DAGoQOVuP8E/FKLiNfg6HMvnT_mJivBD-Q/watch?utm_content=DAGoQOVuP8E&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6844b85385)
+
 ## Features
 
 - Generate, edit, and finalize guides based on customer interactions.
