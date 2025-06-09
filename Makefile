@@ -1,5 +1,3 @@
-# Makefile for SupportAI project
-
 .PHONY: all install update init build force-build up down reload logs
 
 install:
